@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #main {
+      /* width: 40%; */
+      margin: auto;
+    }
+  </style>
+  <body>
+    <div id="main">
+      <h1>Sign Up page</h1>
+      <br /><br />
+      <input type="text" id="name" placeholder="enter name" /><br /><br />
+      <input type="text" id="email" placeholder="enter email" /> <br /><br />
+      <div>
+        <input type="password" id="pass" placeholder="password" /><br /><br />
+        <button id="submit">submit</button>
+        <button id="login" onclick=login()>Login</button> <br> <br>
+        <p>(click on login if already have an account)</p>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+function login(){
+    window.location.href="login.html"
+}
+document.querySelector("#submit").addEventListener("click",submitFun)
+
+var data = JSON.parse(localStorage.getItem("signupdata")) || []
+function submitFun()
+   {
+    var name = document.querySelector("#name").value;
+    var email = document.querySelector("#email").value;
+    var password = document.querySelector("#pass").value;
+
+
+    if(name.length == 0) 
+    {
+      alert("fill the name");
+      return
+    }
+    if(email.length == 0) {
+      alert("fill the email");
+     return
+    }
+    if(password.length == 0) {
+      alert("fill the password");
+      return
+    }
+
+    var obj = {
+      "name": name,
+      "email": email,
+      "password": password,
+    };
+    console.log(obj);
+    
+
+    var flag=false;
+    data.forEach(el=> {
+        if(el.email == email) flag=true;
+        
+    });
+    if(flag){
+        alert("email already exist try with the other");
+        return;
+    }
+    data.push(obj);
+    localStorage.setItem("signupdata",JSON.stringify(data));
+    window.location.href ="login.html"
+  }
+</script>
