@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #nav{
+        
+       display: flex;
+       width:90%;
+       justify-content: space-between;
+       margin :auto;
+       margin-top: 20px;
+       background-color: maroon;
+       padding: 20px;
+       border-radius: 10px;
+    }
+    #sec{
+        display: flex ;
+        /* justify-content: space-around; */
+        width: 55%;
+        justify-content: space-around;
+    }
+    body{
+        display: flex;
+    }
+</style>
+<body>
+    <div id="nav">
+        <div id="one">Reebok</div>
+   <div id="sec">
+       <h4 id="men">Men</h4>
+       <h4 id="wom">Womens</h4>
+       <h4 id="log">Logout</h4>
+       <h4 id="sign">SignUp</h4>
+   </div>
+    </div>
+   
+</body>
+</html>
+<script>
+    document.querySelector("#men").addEventListener("click",men)
+    document.querySelector("#wom").addEventListener("click",wom)
+    document.querySelector("#log").addEventListener("click",log)
+    document.querySelector("#sign").addEventListener("click",sign)
+    function men(){
+        window.location.href="mens.html"
+    }
+    function wom(){window.location.href="women.html"}
+        function log(){window.location.href="logout.html"}
+            function sign(){window.location.href="signup.html"}
+                
+</script>
